@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { PiPencilLineFill } from "react-icons/pi"
 
 export const Nav = styled.nav`
-  background: var(--green);
+  background: transparent;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   cursor: pointer;
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 390px) {
     position: absolute;
     top: 10px;
     left: 25px;
@@ -36,6 +36,7 @@ export const NavIcon = styled.div`
   p {
     transform: translate(-175%, 100%);
     font-weight: bold;
+    font-family: 'Khand'
   }
 `
 
