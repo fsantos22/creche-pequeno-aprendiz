@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import "./global.css"
+import StyledComponentsRegistry from "./registry"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -16,7 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <head>
+      <link href="https://fonts.googleapis.com/css2?family=Advent+Pro&family=Fasthand&family=Just+Another+Hand&family=Khand&family=Patrick+Hand&family=Patrick+Hand+SC&display=swap" rel="stylesheet"/>
+        {/* <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;900&display=swap" rel="stylesheet" /> */}
+      </head>
+      <StyledComponentsRegistry>
+        <body className={inter.className}>{children}</body>
+      </StyledComponentsRegistry>
     </html>
   )
 }

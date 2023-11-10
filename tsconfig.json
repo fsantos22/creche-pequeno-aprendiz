@@ -16,12 +16,13 @@
     "plugins": [
       {
         "name": "next"
-      }
+      },
+      { "transform": "transformer-module" }
     ],
     "baseUrl": "src",
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
