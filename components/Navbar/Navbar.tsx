@@ -20,7 +20,7 @@ import {
 } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Link from 'next/link'
+import Link from 'next/link';
 
 import theme from '@/styles/theme';
 
@@ -37,6 +37,7 @@ const navItems = [
   { text: 'Novidades', target: '#news' },
   { text: 'Onde estamos', target: '#location' },
 ];
+import { colorSchema } from '@/utils/constraints';
 
 const contactButton = (
   <Link href={whatsappLink} target="_blank" replace={true}>
@@ -44,7 +45,7 @@ const contactButton = (
       variant="contained"
       sx={{
         fontSize: navFontSize,
-        '&:hover': { backgroundColor: 'button.secondary' },
+        '&:hover': { backgroundColor: colorSchema.purple },
       }}
     >
       Contato
@@ -54,7 +55,7 @@ const contactButton = (
 
 interface Props {
   window?: () => Window;
-  children: React.ReactElement;
+  children?: React.ReactElement;
 }
 function HideOnScroll(props: Props) {
   const { children } = props;
@@ -62,7 +63,7 @@ function HideOnScroll(props: Props) {
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-      {children}
+      {children as React.ReactElement}
     </Slide>
   );
 }
@@ -85,11 +86,8 @@ export default function DrawerAppBar(props: Props) {
           {navItems.map((item) => (
             <ListItem key={item.text} disablePadding>
               <ListItemButton sx={{ textAlign: 'center' }}>
-                <Link
-                  href={item.target}
-                  replace={true}
-                >
-                    <ListItemText primary={item.text} />
+                <Link href={item.target} replace={true}>
+                  <ListItemText primary={item.text} />
                 </Link>
               </ListItemButton>
             </ListItem>
@@ -110,7 +108,7 @@ export default function DrawerAppBar(props: Props) {
           <AppBar
             component="nav"
             position="fixed"
-            sx={{ backgroundColor: '#FFF', color: '#7e57c2' }}
+            sx={{ backgroundColor: '#FFF', color: colorSchema.purple }}
           >
             <Toolbar
               sx={{
@@ -142,6 +140,7 @@ export default function DrawerAppBar(props: Props) {
                     display: { xs: 'none', sm: 'block' },
                     fontSize: navFontSize,
                     fontWeight: 700,
+                    color: colorSchema.purple,
                   }}
                 >
                   LOGO
@@ -154,8 +153,8 @@ export default function DrawerAppBar(props: Props) {
                           sx={{
                             fontSize: navFontSize,
                             fontWeight: 700,
-                            color: 'button.secondary',
-                            '&:hover': { color: 'button.primary' },
+                            color: colorSchema.purple,
+                            '&:hover': { color: colorSchema.orange },
                           }}
                         >
                           {item.text}

@@ -10,6 +10,7 @@ import babyColorIcon from '@/assets/icons/babyColor.svg';
 import boyColorIcon from '@/assets/icons/boyColor.svg';
 import girlColorIcon from '@/assets/icons/girlColor.svg';
 import theme, { centerContent } from '@/styles/theme';
+import { colorSchema } from '@/utils/constraints';
 
 const cardsContent = [
   {
@@ -41,7 +42,7 @@ function Classes() {
           ...centerContent,
           position: 'relative',
           minHeight: '450px',
-          backgroundColor: 'background.primary',
+          backgroundColor: colorSchema.orange,
         }}
       >
         <Image

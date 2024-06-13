@@ -1,25 +1,24 @@
 import { createTheme } from '@mui/material/styles';
 
+import { colorSchema } from '@/utils/constraints';
+
 const fontFamily = "'Patrick Hand', 'Carlito', sans-serif";
 export const centerContent = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-}
+};
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#EB5D30',
+      main: colorSchema.orange,
     },
     secondary: {
-      main: '#7e57c2',
+      main: colorSchema.purple,
     },
     background: {
       default: '#fef9f2',
-      primary: '#EB5D30',
-      secondary: '#7e57c2'
-      // paper: '#56509f',
     },
     info: {
       main: '#3d5afe',
@@ -27,10 +26,6 @@ const theme = createTheme({
     text: {
       secondary: 'rgba(243,243,243,0.85)',
     },
-    button: {
-      primary: '#EB5D30',
-      secondary: '#7e57c2'
-    }
   },
   shape: {
     borderRadius: 5,
@@ -38,17 +33,16 @@ const theme = createTheme({
   typography: {
     fontFamily,
     h4: {
-      fontFamily: "Caveat",
+      fontFamily: 'Caveat',
     },
     subtitle1: {
-      fontFamily: "Poppins",
-      fontSize: '1em'
+      fontFamily: 'Poppins',
+      fontSize: '1em',
     },
     body1: {
-      fontFamily: "Roboto",
-      fontSize: '1em'
+      fontFamily: 'Roboto',
+      fontSize: '1em',
     },
-    // fontSize,
   },
 });
 

@@ -11,6 +11,7 @@ import Link from 'next/link';
 import aboutImg from '@/assets/aboutImg.jpeg';
 import theme, { centerContent } from '@/styles/theme';
 // import { whatsappLink } from '@/utils/constraints.js';
+import { colorSchema } from '@/utils/constraints';
 
 const whatsappLink = 'https://wa.me/message/NBYCE4EFHSNHB1';
 
@@ -46,7 +47,7 @@ export default function About() {
                   <Button
                     sx={{
                       fontSize: '2em',
-                      color: 'button.primary',
+                      color: colorSchema.orange,
                       borderRadius: 5,
                       p: '0 20px',
                       '&:hover': {
@@ -64,7 +65,7 @@ export default function About() {
                   <Button
                     sx={{
                       fontSize: '2em',
-                      color: 'button.primary',
+                      color: colorSchema.orange,
                       borderRadius: 5,
                       p: '0 20px',
                       '&:hover': {
@@ -97,7 +98,7 @@ export default function About() {
                   marginBottom: 3,
                   fontFamily: 'Caveat',
                   fontWeight: 700,
-                  color: 'button.secondary',
+                  color: colorSchema.purple,
                 }}
               >
                 Sobre nós

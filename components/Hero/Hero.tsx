@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 import heroImg from '@/assets/hero1.webp';
 import theme, { centerContent } from '@/styles/theme';
+import { colorSchema } from '@/utils/constraints';
 
 export default function Hero() {
   return (
@@ -50,7 +51,7 @@ export default function Hero() {
                   sx={{
                     textAlign: 'center',
                     margin: '10px auto 20px',
-                    color: 'button.secondary',
+                    color: colorSchema.purple,
                     fontFamily: 'Patrick Hand',
                     fontWeight: '700',
                   }}
@@ -62,7 +63,7 @@ export default function Hero() {
                   sx={{
                     p: '5px 20px',
                     fontSize: '1.5em',
-                    '&:hover': { backgroundColor: 'button.secondary' },
+                    '&:hover': { backgroundColor: colorSchema.purple },
                   }}
                 >
                   Saiba mais

@@ -13,6 +13,7 @@ import flagIcon from '@/assets/icons/flag.svg';
 import paletteIcon from '@/assets/icons/palette.svg';
 import tvIcon from '@/assets/icons/tv.svg';
 import theme, { centerContent } from '@/styles/theme';
+import { colorSchema } from '@/utils/constraints';
 
 const activities = [
   { text: 'Área de jogos', icon: ballIcon },
@@ -65,7 +66,7 @@ export default function Activities() {
                   marginBottom: 3,
                   fontFamily: 'Caveat',
                   fontWeight: 700,
-                  color: 'button.secondary',
+                  color: colorSchema.purple,
                 }}
               >
                 Atividades
@@ -88,7 +89,15 @@ export default function Activities() {
                 <Grid container sx={{ ...centerContent, gap: 1 }}>
                   {activities.map((item, index) => {
                     return (
-                      <Grid key={index} xl sx={{ display:'flex', alingItems:'center', minWidth: '245px' }}>
+                      <Grid
+                        key={index}
+                        xl
+                        sx={{
+                          display: 'flex',
+                          alingItems: 'center',
+                          minWidth: '245px',
+                        }}
+                      >
                         <Box
                           sx={{
                             ...centerContent,
@@ -104,7 +113,7 @@ export default function Activities() {
                             variant="h5"
                             sx={{
                               fontFamily: 'Kalam',
-                              color: 'button.secondary',
+                              color: colorSchema.purple,
                               fontWeight: 600,
                             }}
                           >

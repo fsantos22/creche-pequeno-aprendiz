@@ -7,6 +7,7 @@ import Image from 'next/image';
 
 import highlightsBg from '@/assets/highlightsBg.webp';
 import theme, { centerContent } from '@/styles/theme';
+import { colorSchema } from '@/utils/constraints';
 
 const MapContainer = styled('div')({
   width: '400px',
@@ -56,7 +57,7 @@ export default function Location() {
                 marginBottom: 2,
                 fontFamily: 'Caveat',
                 fontWeight: 700,
-                color: 'button.secondary',
+                color: colorSchema.purple,
               }}
             >
               Onde estamos

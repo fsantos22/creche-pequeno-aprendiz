@@ -10,6 +10,7 @@ import ballColorIcon from '@/assets/icons/ballColor.svg';
 import englishColorIcon from '@/assets/icons/englishColor.svg';
 import paletteColorIcon from '@/assets/icons/paletteColor.svg';
 import theme, { centerContent } from '@/styles/theme';
+import { colorSchema } from '@/utils/constraints';
 
 const cardsContent = [
   {
@@ -41,7 +42,7 @@ function Highlights() {
           ...centerContent,
           position: 'relative',
           minHeight: '450px',
-          backgroundColor: 'background.secondary',
+          backgroundColor: colorSchema.purple,
         }}
       >
         <Image
