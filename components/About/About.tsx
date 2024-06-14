@@ -3,17 +3,14 @@ import React from 'react';
 import CallIcon from '@mui/icons-material/Call';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { Box, Button, Typography } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
+import { ThemeProvider } from '@mui/system';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import aboutImg from '@/assets/aboutImg.jpeg';
 import theme, { centerContent } from '@/styles/theme';
-// import { whatsappLink } from '@/utils/constraints.js';
-import { colorSchema } from '@/utils/constraints';
-
-const whatsappLink = 'https://wa.me/message/NBYCE4EFHSNHB1';
+import { colorSchema, whatsappLink } from '@/utils/constraints';
 
 export default function About() {
   return (
@@ -25,7 +22,7 @@ export default function About() {
           backgroundColor: '#FFF',
         }}
       >
-        <Grid container sx={{ ...centerContent, maxWidth: '1200px', p: 5 }}>
+        <Grid container sx={{ ...centerContent, maxWidth: '1200px', p: 2 }}>
           <Grid xs={12} md={6}>
             <Box
               sx={{
@@ -42,7 +39,12 @@ export default function About() {
               <Typography variant="subtitle1">
                 Entre em contato conosco!
               </Typography>
-              <Box sx={{ ...centerContent }}>
+              <Box
+                sx={{
+                  ...centerContent,
+                  flexDirection: { sm: 'row', xs: 'column' },
+                }}
+              >
                 <Link href="tel:+552133394029" replace={true}>
                   <Button
                     sx={{

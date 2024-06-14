@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
+import { ThemeProvider } from '@mui/system';
 import Image from 'next/image';
 
 import activitiesImg from '@/assets/activitiesImg.webp';
@@ -34,7 +34,7 @@ export default function Activities() {
           backgroundColor: '#FFF',
         }}
       >
-        <Grid container sx={{ ...centerContent, maxWidth: '1200px', p: 5 }}>
+        <Grid container sx={{ ...centerContent, maxWidth: '1200px', p: 2 }}>
           <Grid xs={12} md={6}>
             <Box
               sx={{

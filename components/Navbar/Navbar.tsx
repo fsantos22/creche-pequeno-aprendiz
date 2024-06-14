@@ -14,12 +14,11 @@ import {
   ListItemButton,
   ListItemText,
   Slide,
-  styled,
   Toolbar,
   Typography,
 } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+import { styled, ThemeProvider } from '@mui/system';
 import Link from 'next/link';
 
 import theme from '@/styles/theme';
@@ -38,6 +37,15 @@ const navItems = [
   { text: 'Onde estamos', target: '#location' },
 ];
 import { colorSchema } from '@/utils/constraints';
+
+const linkStyles = {
+  textDecoration: 'none',
+  fontSize: navFontSize,
+  fontWeight: 700,
+  color: colorSchema.purple,
+  '&:hover': { color: colorSchema.orange },
+};
+const SLink = styled(Link)(linkStyles);
 
 const contactButton = (
   <Link href={whatsappLink} target="_blank" replace={true}>
@@ -77,28 +85,32 @@ export default function DrawerAppBar(props: Props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography
+        variant="h6"
+        sx={{
+          my: 2,
+          fontFamily: 'Poppins',
+          fontWeight: 600,
+          color: colorSchema.purple,
+        }}
+      >
         MENU
       </Typography>
       <Divider />
       <List>
-        <>
-          {navItems.map((item) => (
-            <ListItem key={item.text} disablePadding>
+        {navItems.map((item) => (
+          <SLink key={item.text} href={item.target} replace={true}>
+            <ListItem disablePadding>
               <ListItemButton sx={{ textAlign: 'center' }}>
-                <Link href={item.target} replace={true}>
-                  <ListItemText primary={item.text} />
-                </Link>
+                <ListItemText primary={item.text} />
               </ListItemButton>
             </ListItem>
-          ))}
-        </>
+          </SLink>
+        ))}
         {contactButton}
       </List>
     </Box>
   );
-
-  const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
   return (
     <ThemeProvider theme={theme}>
@@ -108,26 +120,25 @@ export default function DrawerAppBar(props: Props) {
           <AppBar
             component="nav"
             position="fixed"
-            sx={{ backgroundColor: '#FFF', color: colorSchema.purple }}
+            sx={{
+              backgroundColor: '#FFF',
+              color: colorSchema.purple,
+              display: 'flex',
+            }}
           >
-            <Toolbar
-              sx={{
-                display: { xs: 'flex' },
-                justifyContent: 'center',
-              }}
-            >
+            <Toolbar sx={{ justifyContent: { sm: 'center', xs: 'flex-end' } }}>
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' } }}
+                sx={{ display: { sm: 'none' } }}
               >
                 <MenuIcon />
               </IconButton>
               <Box
                 sx={{
-                  display: 'flex',
+                  display: { sm: 'flex', xs: 'none' },
                   alignItems: 'center',
                   width: toolbarWidth,
                 }}
@@ -151,10 +162,7 @@ export default function DrawerAppBar(props: Props) {
                       <Link key={item.text} href={item.target}>
                         <Button
                           sx={{
-                            fontSize: navFontSize,
-                            fontWeight: 700,
-                            color: colorSchema.purple,
-                            '&:hover': { color: colorSchema.orange },
+                            ...linkStyles,
                           }}
                         >
                           {item.text}
@@ -168,7 +176,6 @@ export default function DrawerAppBar(props: Props) {
             </Toolbar>
           </AppBar>
         </HideOnScroll>
-        <Offset />
         <nav>
           <Drawer
             variant="temporary"

@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import { Box, Paper, styled, Typography } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Unstable_Grid2';
+import { ThemeProvider } from '@mui/system';
 import Image from 'next/image';
 
 import highlightsBg from '@/assets/highlightsBg.webp';
@@ -30,7 +30,8 @@ export default function Location() {
           ...centerContent,
           position: 'relative',
           backgroundColor: '#55b06f',
-          minHeight: '500px',
+          // minHeight: '500px',
+          p: { xs: 2 },
         }}
       >
         <Image
@@ -45,10 +46,13 @@ export default function Location() {
             ...centerContent,
             justifyContent: 'space-evenly',
             width: '1200px',
-            p: 5,
           }}
         >
-          <Grid xs={12} md={6}>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{ ...centerContent, flexDirection: 'column' }}
+          >
             <Typography
               variant="h3"
               sx={{
@@ -68,6 +72,8 @@ export default function Location() {
                 flexDirection: 'column',
                 gap: 2,
                 padding: 2,
+                width: '400px',
+                marginBottom: 2,
               }}
             >
               <Typography variant="h5">

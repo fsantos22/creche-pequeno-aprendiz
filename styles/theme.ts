@@ -1,8 +1,10 @@
+'use client'
 import { createTheme } from '@mui/material/styles';
 
 import { colorSchema } from '@/utils/constraints';
 
-const fontFamily = "'Patrick Hand', 'Carlito', sans-serif";
+const fontFamily = "Patrick Hand";
+
 export const centerContent = {
   display: 'flex',
   alignItems: 'center',
